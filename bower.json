@@ -1,0 +1,16 @@
+{
+  "name": "alan-el-preguntador",
+  "description": "pagina web para la comunidad de programadores de la universidad de Zaragoza, campus de Teruel.",
+  "main": "index.js",
+  "authors": [
+    "orggue"
+  ],
+  "license": "ISC",
+  "moduleType": [],
+  "homepage": "",
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "components-font-awesome": "~4.4.0",
+    "normalize-css": "normalize.css#~3.0.3"
+  }
+}
