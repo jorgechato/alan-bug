@@ -9,9 +9,12 @@
   "author": "orggue",
   "license": "ISC",
   "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
     "compression": "^1.5.1",
     "express.io": "^1.1.13",
+    "mongoose": "^4.2.4",
     "passport": "^0.3.0",
+    "passport-local": "^1.0.0",
     "swig": "^1.4.2",
     "winston": "^1.0.1",
     "winston-papertrail": "^1.0.1"
