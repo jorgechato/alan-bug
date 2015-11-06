@@ -1,11 +1,9 @@
-var express = require('express.io'),
+var express = require('express'),
 compression = require('compression'),
 swig = require('swig');
 
 //Local variables
 var server = express();
-
-server.http().io();
 
 //Static files
 server.use(express.static('./dist'));
@@ -22,8 +20,8 @@ server.use(compression());
 server.use(express.static('./dist'));
 
 //router
-var login = require('./lib/login');
-server.use(login);
+var auth = require('./lib/auth');
+server.use(auth);
 
 server.get('/',function(req, res){
   res.render('index.html');
