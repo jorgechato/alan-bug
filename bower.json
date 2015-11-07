@@ -11,6 +11,7 @@
   "dependencies": {
     "jquery": "~2.1.4",
     "components-font-awesome": "~4.4.0",
-    "normalize-css": "normalize.css#~3.0.3"
+    "normalize-css": "normalize.css#~3.0.3",
+    "bootstrap-css": "~3.3.4"
   }
 }
