@@ -24,7 +24,7 @@ var auth = require('./lib/auth');
 server.use(auth);
 
 server.get('/',function(req, res){
-  res.render('index.html');
+  res.render('index',{user: req.user});
 });
 
 //Server
