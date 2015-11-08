@@ -1,6 +1,7 @@
 var express = require('express'),
 compression = require('compression'),
 swig = require('swig');
+var util = require('./lib/util');
 
 //Local variables
 var server = express();
@@ -23,8 +24,19 @@ server.use(express.static('./dist'));
 var auth = require('./lib/auth');
 server.use(auth);
 
-server.get('/',function(req, res){
+var admin = require('./lib/admin');
+server.use(admin);
+
+server.get('/',util.isLoggedIn,function(req, res){
   res.render('index',{user: req.user});
+});
+
+server.get('/error/:param?',function(req, res){
+  res.send(404);
+});
+
+server.all('*',function(req, res){
+  res.redirect('/error');
 });
 
 //Server
