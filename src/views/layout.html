@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+    <meta name="author" content="Jorge Chato"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <title>{% block title %}Alan Bug{% endblock %}</title>
+    <link rel="icon" href="/assets/img/favicon.ico">
+    {% block css %}
+    <!-- inject:css -->
+    <!-- endinject -->
+    {% endblock %}
+    <base href="/" target="" />
+  </head>
+  <body>
+    {% block content %}{% endblock %}
+    <footer>
+      {% block footer %}{% endblock %}
+      {% block js %}
+      <!-- inject:js-->
+      <!-- endinject -->
+      {% endblock %}
+    </footer>
+  </body>
+</html>

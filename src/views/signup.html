@@ -1,58 +1,35 @@
-<!DOCTYPE html>
-<html lang="es">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="description" content=""/>
-    <meta name="keywords" content=""/>
-    <meta name="author" content=""/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="format-detection" content="telephone=no">
-    <title>Alan el preguntador</title>
-    <link rel="icon" href="/assets/img/favicon.ico">
-    <link rel="apple-touch-icon" href="/assets/img/favicon.ico">
-    <!-- inject:css -->
-    <!-- endinject -->
-    <base href="/" target="" />
-  </head>
-  <body>
-    <div class="container">
+{% extends 'layout.html' %}
 
-      <div class="col-sm-6 col-sm-offset-3">
+{% block content %}
+<div class="container">
 
-        <h1><span class="fa fa-sign-in"></span> Registrate</h1>
+  <div class="col-sm-6 col-sm-offset-3">
+    <h1><span class="fa fa-sign-in"></span> Registrate</h1>
+    {% if message.length>0 %}
+    <div class="alert alert-danger">{{ message }}</div>
+    {% endif %}
 
-        {% if message.length>0 %}
-        <div class="alert alert-danger">{{ message }}</div>
-        {% endif %}
-
-        <!-- LOGIN FORM -->
-        <form action="/signup?q={{query}}&email={{email}}" method="post" name="signup">
-          <div class="form-group">
-            <label>Usuario</label>
-            <input type="text" class="form-control" name="username">
-          </div>
-          <div class="form-group">
-            <label>Contraseña</label>
-            <input type="password" class="form-control" name="password">
-          </div>
-          <div class="form-group">
-            <label>Repetir contraseña</label>
-            <input type="password" class="form-control" name="checkPassword">
-          </div>
-
-          <button type="submit" class="btn btn-success btn-lg">Empieza</button>
-        </form>
-
-        <hr>
-
-        <p>Already have an account? <a href="/login">Login</a></p>
-        <p>Or go <a href="/">home</a>.</p>
-
+    <!-- LOGIN FORM -->
+    <form action="/signup?q={{query}}&email={{email}}" method="post" name="signup">
+      <div class="form-group">
+        <label>Usuario</label>
+        <input type="text" class="form-control" name="username">
+      </div>
+      <div class="form-group">
+        <label>Contraseña</label>
+        <input type="password" class="form-control" name="password">
+      </div>
+      <div class="form-group">
+        <label>Repetir contraseña</label>
+        <input type="password" class="form-control" name="checkPassword">
       </div>
 
-    </div>
-    <!-- inject:js-->
-    <!-- endinject -->
-  </body>
-</html>
+      <button type="submit" class="btn btn-success btn-lg">Empieza</button>
+    </form>
+
+    <hr>
+    <p>Already have an account? <a href="/login">Login</a></p>
+    <p>Or go <a href="/">home</a>.</p>
+  </div>
+</div>
+{% endblock %}

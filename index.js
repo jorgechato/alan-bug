@@ -1,10 +1,14 @@
 var express = require('express'),
 compression = require('compression'),
+bodyParser = require('body-parser'),
 swig = require('swig');
 var util = require('./lib/util');
 
 //Local variables
 var server = express();
+
+server.use(bodyParser.urlencoded({ extended: false }));
+server.use(bodyParser.json('application/json'));// get information from html forms
 
 //Static files
 server.use(express.static('./dist'));
@@ -22,9 +26,9 @@ server.use(express.static('./dist'));
 
 //router
 var auth = require('./lib/auth');
-server.use(auth);
-
 var admin = require('./lib/admin');
+
+server.use(auth);
 server.use(admin);
 
 server.get('/',util.isLoggedIn,function(req, res){
