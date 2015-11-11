@@ -4,7 +4,43 @@
 
 {% block content %}
 <div class="container">
-  <h1>{{ user.username }}</h1>
-  {{ user }}
+  <h1>{{ user.username | upper }}</h1>
+  <div class="col-sm-6 col-sm-offset-3">
+
+    <img src="http://jorgechato.com/assets/img/avatar2.jpg" alt="{{ user.username }}" class="img-rounded col-md-offset-4" style="width:150px;height:150px;">
+    {% if messageAlert.length>0 %}
+    <div class="alert alert-danger">{{ messageAlert }}</div>
+    {% endif %}
+    {% if message.length>0 %}
+    <div class="alert alert-success">{{ message }}</div>
+    {% endif %}
+
+    <form action="/admin/user/{{user.id}}?q={{user.id}}" method="post" name="login">
+      <div class="form-group">
+        <label>Nombre</label>
+        <input type="text" class="form-control" name="username" value="{{user.username}}">
+      </div>
+      <div class="form-group">
+        <label>Correo</label>
+        <input type="text" class="form-control" name="email" value="{{user.email}}">
+      </div>
+      <div class="form-group">
+        <label>Role</label>
+        <input type="text" class="form-control" name="role" value="{{user.role}}">
+      </div>
+      <div class="form-group">
+        <label>Web</label>
+        <input type="text" class="form-control" name="web" value="{{user.web}}">
+      </div>
+      <div class="form-group">
+        <label>Github</label>
+        <input type="text" class="form-control" name="github" value="{{user.github}}">
+      </div>
+
+      <a href="admin/user/{{user.id}}" type="button" class="btn btn-danger">Eliminar</a>
+      <a href="admin/users" type="button" class="btn btn-default">Cancelar</a>
+      <button type="submit" class="btn btn-success">Guardar</button>
+    </form>
+  </div>
 </div>
 {% endblock %}
