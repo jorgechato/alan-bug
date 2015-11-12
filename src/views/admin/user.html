@@ -4,7 +4,13 @@
 
 {% block content %}
 <div class="container">
-  <h1>{{ user.username | upper }}</h1>
+  <h3>
+    <a href="admin">{{"Admin"|title}}</a>
+    <span class="fa fa-angle-right"></span>
+    <a href="admin/users">{{"Usuarios"|title}}</a>
+    <span class="fa fa-angle-right"></span>
+    {{ user.username | upper }}
+  </h3>
   <div class="col-sm-6 col-sm-offset-3">
 
     <img src="http://jorgechato.com/assets/img/avatar2.jpg" alt="{{ user.username }}" class="img-rounded col-md-offset-4" style="width:150px;height:150px;">

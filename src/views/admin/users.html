@@ -4,7 +4,11 @@
 
 {% block content %}
 <div class="container">
-  <h1>Usuarios</h1>
+  <h3>
+    <a href="admin">{{"Admin"|title}}</a>
+    <span class="fa fa-angle-right"></span>
+    Usuarios
+  </h3>
 
   <div class="col-sm-8 col-sm-offset-2">
     {% if message.length>0 %}
