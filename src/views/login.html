@@ -10,7 +10,7 @@
     {% endif %}
 
     <!-- LOGIN FORM -->
-    <form action="/login" method="post" name="login">
+    <form action="{% url 'login' %}" method="post" name="login">
       <div class="form-group">
         <label>Usuario o correo</label>
         <input type="text" class="form-control" name="username">
@@ -24,8 +24,8 @@
     </form>
 
     <hr>
-    <p>Already have an account? <a href="/login">Login</a></p>
-    <p>Or go <a href="/">home</a>.</p>
+    <p>Already have an account? <a href="{% url 'login' %}">Login</a></p>
+    <p>Or go <a href="{% url 'home' %}">home</a>.</p>
   </div>
 </div>
 {% endblock %}

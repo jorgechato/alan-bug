@@ -3,8 +3,15 @@
 {% block title %}You are the admin{% endblock %}
 
 {% block content %}
+{% include 'elements/nav.html' %}
 <div class="container">
-  <h3>Admin</h3>
+  <div class="jumbotron">
+    <h1>Hola {{user.username | title}}</h1>
+    <p>Actualmente tienes los privilegios necesarios para adminiatrar esta hermandad de programadores. No elvides nunca 
+    porque hacemos esto y se congruente con tus acciones.</p>
+    <p>"Un gran poder conlleva una gran responsabilidad"</p>
+    <p><a class="btn btn-primary" href="{% url 'home' %}" role="button">Home</a></p>
+  </div>
   <div class="col-sm-6 col-sm-offset-3">
   </div>
 </div>

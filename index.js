@@ -13,6 +13,14 @@ server.use(bodyParser.json('application/json'));// get information from html for
 //Static files
 server.use(express.static('./dist'));
 
+//Set URL
+var urltag = require('./lib/util/tag-url');
+swig.setExtension('url', function (urlname) {
+  var url = require('./lib/util/url');
+  return url.getUrl(urlname);
+});
+swig.setTag('url', urltag.parse, urltag.compile, urltag.ends, urltag.blockLevel);
+
 //Config views
 server.engine('html',swig.renderFile);
 server.set('view engine','html');

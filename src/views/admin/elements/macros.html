@@ -1,0 +1,32 @@
+{% macro invitation() %}
+<div class="col-sm-8 col-sm-offset-2">
+  {% if message.length>0 %}
+  <div class="alert alert-danger col-sm-9">{{ message }}</div>
+  {% endif %}
+  <form action="{% url 'admin.users' %}" method="post" name="invitation">
+    <div class="form-group">
+      <div class="col-sm-8">
+        <input type="text" name="email" class="form-control" id="inputEmail3" placeholder="Enviar invitación">
+      </div>
+      <div class="col-sm-3">
+        <button type="submit" class="btn btn-success">Enviar</button>
+      </div>
+    </div>
+  </form>
+</div>
+{% endmacro %}
+
+{% macro search(urlForm, placeholder, searchValue) %}
+<div class="col-sm-8 col-sm-offset-2">
+  <form action="{% url urlForm %}" method="get" name="invitation">
+    <div class="form-group">
+      <div class="col-sm-8">
+        <input type="text" name="search" class="form-control" id="inputEmail3" placeholder="{{placeholder}}" value="{{searchValue}}">
+      </div>
+      <div class="col-sm-3">
+        <button type="submit" class="btn btn-primary">Buscar</button>
+      </div>
+    </div>
+  </form>
+</div>
+{% endmacro %}
