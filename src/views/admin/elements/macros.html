@@ -1,9 +1,9 @@
-{% macro invitation() %}
+{% macro invitation(urlForm) %}
 <div class="col-sm-8 col-sm-offset-2">
   {% if message.length>0 %}
   <div class="alert alert-danger col-sm-9">{{ message }}</div>
   {% endif %}
-  <form action="{% url 'admin.users' %}" method="post" name="invitation">
+  <form action="{% url urlForm %}" method="post" name="invitation">
     <div class="form-group">
       <div class="col-sm-8">
         <input type="text" name="email" class="form-control" id="inputEmail3" placeholder="Enviar invitación">

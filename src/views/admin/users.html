@@ -7,8 +7,7 @@
 {% include 'elements/nav.html' %}
 <div class="container">
 
-  {{sear}}
-  {{ macros.invitation() }}
+  {{ macros.invitation( "admin.users" ) }}
   {{ macros.search( "admin.users", "Busca por nombre, email o role", search) }}
 
   <table class="table table-striped table-hover">
